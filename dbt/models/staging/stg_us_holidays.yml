@@ -1,0 +1,43 @@
+version: 1
+
+models:
+  - name: stg_us_holidays
+    description: This model contains a list of US holidays.
+    columns:
+      - name: date
+        description: The date of the holiday.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date
+      - name: localName
+        description: The local name of the holiday.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: name
+        description: The name of the holiday.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: global
+        description: Whether the holiday is global.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: boolean
+      - name: counties
+        description: The counties where the holiday is celebrated.
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: launchYear
+        description: The year the holiday was launched.
+      - name: type
+        description: The type of holiday.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string

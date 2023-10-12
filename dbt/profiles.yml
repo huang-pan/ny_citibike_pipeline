@@ -1,0 +1,67 @@
+# Connection to BigQuery used by local dbt command
+ny-citibike-pipeline:
+  outputs:
+    dev:
+      dataset: cbdev
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /Users/huangpan/Documents/CriticalRiver/keys/ny-citibike-pipeline-1c3428cea46d-bigquery.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: ny-citibike-pipeline
+      threads: 3
+      type: bigquery
+    prod:
+      dataset: cbprod
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /Users/huangpan/Documents/CriticalRiver/keys/ny-citibike-pipeline-1c3428cea46d-bigquery.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: ny-citibike-pipeline
+      threads: 3
+      type: bigquery
+  target: dev
+
+# Connection to BigQuery used in Airflow / Astro / Cosmos
+# https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup
+# https://docs.getdbt.com/reference/resource-configs/bigquery-configs
+bigquery:
+  outputs:
+    dev:
+      dataset: cbdev
+      keyfile_json:
+        auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+        auth_uri: https://accounts.google.com/o/oauth2/auth
+        client_email: gcpbigquery@ny-citibike-pipeline.iam.gserviceaccount.com
+        client_id: 106075245257992621750
+        client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/gcpbigquery%40ny-citibike-pipeline.iam.gserviceaccount.com
+        private_key: 
+        private_key_id: 
+        project_id: ny-citibike-pipeline
+        token_uri: https://oauth2.googleapis.com/token
+        type: service_account
+      method: service-account-json
+      project: ny-citibike-pipeline
+      threads: 3
+      type: bigquery
+    prod:
+      dataset: cbprod
+      keyfile_json:
+        auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+        auth_uri: https://accounts.google.com/o/oauth2/auth
+        client_email: gcpbigquery@ny-citibike-pipeline.iam.gserviceaccount.com
+        client_id: 106075245257992621750
+        client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/gcpbigquery%40ny-citibike-pipeline.iam.gserviceaccount.com
+        private_key: 
+        private_key_id: 
+        project_id: ny-citibike-pipeline
+        token_uri: https://oauth2.googleapis.com/token
+        type: service_account
+      method: service-account-json
+      project: ny-citibike-pipeline
+      threads: 3
+      type: bigquery
+  target: dev

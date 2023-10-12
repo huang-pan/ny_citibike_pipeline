@@ -1,0 +1,7 @@
+[{"name": "starttime", "type": "DATETIME", "mode": "NULLABLE"},
+   {"name": "stoptime", "type": "DATETIME", "mode": "NULLABLE"},
+   {"name": "start_station_id", "type": "INTEGER", "mode": "NULLABLE"},
+   {"name": "start_station_latitude", "type": "FLOAT", "mode": "NULLABLE"},
+   {"name": "start_station_longitude", "type": "FLOAT", "mode": "NULLABLE"},
+   {"name": "bikeid", "type": "INTEGER", "mode": "NULLABLE"}
+]

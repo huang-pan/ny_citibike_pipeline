@@ -1,0 +1,10 @@
+version: 1
+
+models:
+  - name: bikerides_during_holidays
+    description: This model contains the total number of bikerides taken during holidays.
+    columns:
+      - name: num_bikerides_during_holidays
+        description: The total number of bikerides taken during holidays.
+        tests:
+          - not_null

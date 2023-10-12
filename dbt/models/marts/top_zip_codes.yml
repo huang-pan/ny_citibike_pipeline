@@ -1,0 +1,17 @@
+version: 1
+
+models:
+  - name: top_zip_codes
+    description: This model contains the top zip codes with the most bikerides started during holidays.
+    columns:
+      - name: zip_code
+        description: The top zip codes.
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: zip_code_cnt
+        description: The total number of bikerides started during holidays within the zip code.
+        tests:
+          - not_null

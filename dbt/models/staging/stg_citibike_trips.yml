@@ -1,0 +1,35 @@
+version: 1
+
+# https://github.com/calogica/dbt-expectations
+models:
+  - name: stg_citibike_trips
+    description: This model contains the staging table for the citibike trips data.
+    columns:
+      - name: starttime
+        description: The start time of the trip.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: datetime
+      - name: stoptime
+        description: The stop time of the trip.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: datetime
+      - name: start_station_id
+        description: The start station id of the trip.
+        tests:
+          - not_null
+      - name: start_station_latitude
+        description: The start station latitude of the trip.
+        tests:
+          - not_null
+      - name: start_station_longitude
+        description: The start station longitude of the trip.
+        tests:
+          - not_null
+      - name: bikeid
+        description: The bike id of the trip.
+        tests:
+          - not_null

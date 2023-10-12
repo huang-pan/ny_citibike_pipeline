@@ -1,0 +1,26 @@
+version: 1
+
+models:
+  - name: stg_zip_codes_circle
+    description: This model contains a list of US zip codes generated from a 1 mile radius around the zip code center. 
+    columns:
+      - name: zip_code
+        description: The zip code.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: lat
+        description: The latitude of the zip code center.
+        tests:
+          - not_null
+      - name: lon
+        description: The longitude of the zip code center.
+        tests:
+          - not_null
+      - name: zip_code_geom
+        description: The geometry of the zip code.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: geography

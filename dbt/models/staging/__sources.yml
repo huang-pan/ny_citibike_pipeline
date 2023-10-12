@@ -1,0 +1,47 @@
+version: 1
+
+# https://docs.getdbt.com/reference/model-properties
+sources:
+  - name: citibike-tripdata
+    schema: raw
+    database: ny-citibike-pipeline
+    tables:
+      - name: citibike_trips_201306
+      - name: citibike_trips_201307
+      - name: citibike_trips_201308
+      - name: citibike_trips_201309
+      - name: citibike_trips_201310
+      - name: citibike_trips_201311
+      - name: citibike_trips_201312
+      - name: citibike_trips_201401
+      - name: citibike_trips_201402
+      - name: citibike_trips_201403
+      - name: citibike_trips_201404
+      - name: citibike_trips_201405
+      - name: citibike_trips_201406
+      - name: citibike_trips_201407
+      - name: citibike_trips_201408
+      - name: citibike_trips_201409
+      - name: citibike_trips_201410
+      - name: citibike_trips_201411
+      - name: citibike_trips_201412
+  - name: us-holidays
+    schema: raw
+    database: ny-citibike-pipeline
+    tables:
+      - name: us_holidays_2013
+        description: US holidays in 2013
+      - name: us_holidays_2014
+        description: US holidays in 2014
+  - name: us-zip-codes
+    schema: raw
+    database: ny-citibike-pipeline
+    tables:
+      - name: us_zip_codes
+        description: US zip codes
+  - name: us-zip-codes-public
+    schema: geo_us_boundaries
+    database: bigquery-public-data
+    tables:
+      - name: zip_codes
+        description: US zip codes from GCP public dataset

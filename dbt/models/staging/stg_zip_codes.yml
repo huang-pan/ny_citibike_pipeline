@@ -1,0 +1,64 @@
+version: 1
+
+models:
+  - name: stg_zip_codes
+    description: This model contains a list of US zip codes.
+    columns:
+      - name: zip_code
+        description: The zip code.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: city
+        description: The city.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: county
+        description: The county.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: state_code
+        description: The state code.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: state_name
+        description: The state name.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+      - name: area_land_meters
+        description: The area of land in square meters.
+        tests:
+          - not_null
+      - name: area_water_meters
+        description: The area of water in square meters.
+        tests:
+          - not_null
+      - name: internal_point_lat
+        description: The latitude of the internal point.
+        tests:
+          - not_null
+      - name: internal_point_lon
+        description: The longitude of the internal point.
+        tests:
+          - not_null
+      - name: internal_point_geom
+        description: The geometry of the internal point.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: geography
+      - name: zip_code_geom
+        description: The geometry of the zip code.
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: geography
