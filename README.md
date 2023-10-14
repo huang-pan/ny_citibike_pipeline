@@ -45,6 +45,7 @@ TO DO:
 	- entities: these describe the relationships between various semantic models (think ids)
 	- dimensions: these are the columns you want to slice, dice, group, and filter by
 	- measures: these are the quantitative values you want to aggregate, base measures that go into metrics / aggregations / KPIs
+ - Try Y42 as cloud IDE for Dbt: https://youtu.be/_reNgMlqYu0?si=B6jUEOMsXqOojv1w
 
 
 Overview
