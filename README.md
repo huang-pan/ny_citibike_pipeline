@@ -33,6 +33,7 @@ Create a data pipeline to load the Citibike data from Postgres into BigQuery or 
 
 TO DO:
 - Trigger dependent DAGs like dbt_run using datasets or ExternalTaskSensor if there is a schedule
+- Add good data engineering best practices to Airflow pipelines: better error logging, more testing, etc. See https://www.soda.io/
 - Clean up dbt SQL: https://sqlfluff.com/, sqlfmt.com
 - Use Dbt data contracts: model versioning
 	- https://docs.getdbt.com/docs/collaborate/govern/model-versions
