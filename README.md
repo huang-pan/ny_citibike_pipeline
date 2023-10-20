@@ -22,6 +22,19 @@ Create a data pipeline to load the Citibike data from Postgres into BigQuery or 
 1. How many bike rides were taken during the holidays
 2. Which zip codes are the most popular in terms of starting a bike ride
 
+Please note: for dimensional modeling, a star schema can be created from the original source data:
+https://github.com/huang-pan/ny_citibike_pipeline/blob/main/docs/citibike_trips_schema.txt
+- The fact in the fact table is trip_duration
+- You can have these dimension tables:
+	- time / date at various granularities:
+ 		- time_id (HH:MM, 24 hours per day), is_morning, is_afternoon, is_evening
+ 		- date_id (365 per year), is_holiday, is_weekend, is_weekday
+   		- you can generate the above dimension tables using a python script, save the tables into a csv, and ingest the csv into the data warehouse using the dbt seed command
+     		- the dbt-utils date-spine macro can also be use https://discourse.getdbt.com/t/finding-active-days-for-a-subscription-user-account-date-spining/265
+	- station: station_id, station_name, station_latitude, station_longitude
+ 	- bike: bike+id
+  	- user: user_id key created from usertype, birth_year, gender
+
 ## Tools used:
 - Astronomer / Cosmos / Airflow 2.7+
 - dbt-core 1.6+, dbt-expectations
