@@ -33,7 +33,7 @@ https://github.com/huang-pan/ny_citibike_pipeline/blob/main/docs/citibike_trips_
      		- the dbt-utils date-spine macro can also be used\
 			https://discourse.getdbt.com/t/finding-active-days-for-a-subscription-user-account-date-spining/265
 	- station: station_id, station_name, station_latitude, station_longitude
- 	- bike: bike+id
+ 	- bike: bike_id
   	- user: user_id key created from usertype, birth_year, gender
 
 ## Tools used:
