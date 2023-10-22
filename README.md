@@ -48,6 +48,7 @@ https://github.com/huang-pan/ny_citibike_pipeline/blob/main/docs/citibike_trips_
 TO DO:
 - Trigger dependent DAGs like dbt_run using datasets or ExternalTaskSensor if there is a schedule
 - Add good data engineering best practices to Airflow pipelines: better error logging, more testing, etc. See https://www.soda.io/
+	- the idea is to make data pipelines as idempotent as possible; in case of a pipeline failure, re-running the pipeline will generate the same results every time
 - Clean up dbt SQL: https://sqlfluff.com/, sqlfmt.com
 - Use Dbt data contracts: model versioning
 	- https://docs.getdbt.com/docs/collaborate/govern/model-versions
